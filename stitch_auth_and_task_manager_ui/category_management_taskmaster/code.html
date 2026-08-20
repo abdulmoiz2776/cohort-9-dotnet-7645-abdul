@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Category Management - TaskMaster</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed": "#dbe1ff",
+                        "inverse-primary": "#b4c5ff",
+                        "on-tertiary-container": "#e4f2ff",
+                        "on-error": "#ffffff",
+                        "outline": "#737686",
+                        "inverse-surface": "#2d3133",
+                        "on-surface": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "primary": "#004ac6",
+                        "tertiary": "#005a82",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#eeefff",
+                        "secondary": "#505f76",
+                        "tertiary-container": "#0074a6",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001e2f",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed": "#c9e6ff",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-secondary-container": "#54647a",
+                        "on-primary-fixed": "#00174b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface": "#f7f9fb",
+                        "primary-container": "#2563eb",
+                        "surface-container-high": "#e6e8ea",
+                        "outline-variant": "#c3c6d7",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-tint": "#0053db",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "secondary-container": "#d0e1fb",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#434655",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "background": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "base": "4px",
+                        "margin-desktop": "40px",
+                        "3xl": "64px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "2xl": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .category-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-lowest border-r border-outline-variant shadow-sm h-screen w-64 fixed left-0 top-0 flex flex-col p-md gap-sm hidden md:flex z-40">
+<div class="mb-lg">
+<h1 class="font-headline-md text-headline-md font-black text-primary">TaskMaster</h1>
+</div>
+<div class="flex items-center gap-sm mb-lg">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a female admin user in a corporate environment. Light, bright modern office setting. High key lighting, minimalist background. The style is clean, corporate and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBooPx6OHZHlSe4L9jT1ZWa6wHvLz49AtUsWvvMLQUxc9NP2mPG1v2JFXCZdyee39Q4AbCJjQI90-yiKaqYqH4KZhocB0dCKNizPTGQVjVTKY8SbYZgSMUFIPUUqAYtxCoaDtW5kAkovsA7h__Zm72N0iOWNcU9LaHMzMhjovCk3gPtD-AjRkjoOodYwGjLVfacYEHftmQFrnD5gjLBoCDyq9nMlW5RThOvUM7NCtUKsdLu0UasUkOw"/>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">TaskMaster Admin</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">admin@taskmaster.com</div>
+</div>
+</div>
+<button class="bg-primary-container text-on-primary font-label-md text-label-md py-sm px-md rounded-lg mb-md hover:bg-primary transition-colors active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+            New Task
+        </button>
+<div class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all duration-150 active:scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all duration-150 active:scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">assignment</span>
+                Tasks
+            </a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all duration-150 active:scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">group</span>
+                Users
+            </a>
+<a class="flex items-center gap-sm p-sm rounded-lg bg-secondary-container text-on-secondary-container font-semibold transition-all duration-150 active:scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">category</span>
+                Categories
+            </a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all duration-150 active:scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</div>
+<div class="mt-auto flex flex-col gap-xs border-t border-outline-variant pt-md">
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all duration-150 active:scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-error hover:bg-error-container transition-all duration-150 active:scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 ml-0 md:ml-64 p-margin-mobile md:p-margin-desktop w-full max-w-[1280px] mx-auto min-h-screen">
+<header class="flex justify-between items-center mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg md:font-headline-lg md:text-headline-lg font-headline-lg-mobile text-headline-lg-mobile text-on-background">Categories</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Manage task classifications and organizational tags.</p>
+</div>
+<button class="bg-primary-container text-on-primary font-label-md text-label-md py-sm px-lg rounded-lg hover:bg-primary transition-colors flex items-center gap-sm" onclick="openPanel('new')">
+<span class="material-symbols-outlined">add</span>
+                Create Category
+            </button>
+</header>
+<!-- Bento Grid Layout for Categories -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Category Card 1 -->
+<div class="category-card bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col relative transition-all duration-200" style="box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.1), 0 1px 2px -1px rgba(15, 23, 42, 0.1);">
+<div class="absolute left-0 top-0 bottom-0 w-xs bg-[#ef4444] rounded-l-xl"></div>
+<div class="flex justify-between items-start mb-md pl-xs">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-[#fef2f2] text-[#ef4444] flex items-center justify-center">
+<span class="material-symbols-outlined">priority_high</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Urgent</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-xs py-[2px] rounded">Active</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors" onclick="openPanel('edit')">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md pl-xs flex-1">High priority tasks requiring immediate attention.</p>
+<div class="flex justify-between items-center pl-xs pt-sm border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">42 Active Tasks</span>
+</div>
+</div>
+<!-- Category Card 2 -->
+<div class="category-card bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col relative transition-all duration-200" style="box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.1), 0 1px 2px -1px rgba(15, 23, 42, 0.1);">
+<div class="absolute left-0 top-0 bottom-0 w-xs bg-[#3b82f6] rounded-l-xl"></div>
+<div class="flex justify-between items-start mb-md pl-xs">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-[#eff6ff] text-[#3b82f6] flex items-center justify-center">
+<span class="material-symbols-outlined">code</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Development</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-xs py-[2px] rounded">Active</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md pl-xs flex-1">Engineering and software development tasks.</p>
+<div class="flex justify-between items-center pl-xs pt-sm border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">128 Active Tasks</span>
+</div>
+</div>
+<!-- Category Card 3 -->
+<div class="category-card bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col relative transition-all duration-200" style="box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.1), 0 1px 2px -1px rgba(15, 23, 42, 0.1);">
+<div class="absolute left-0 top-0 bottom-0 w-xs bg-[#10b981] rounded-l-xl"></div>
+<div class="flex justify-between items-start mb-md pl-xs">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-[#ecfdf5] text-[#10b981] flex items-center justify-center">
+<span class="material-symbols-outlined">brush</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Design</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-xs py-[2px] rounded">Active</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md pl-xs flex-1">UI/UX design, branding, and asset creation.</p>
+<div class="flex justify-between items-center pl-xs pt-sm border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">56 Active Tasks</span>
+</div>
+</div>
+<!-- Category Card 4 (Inactive) -->
+<div class="category-card bg-surface-container-low border border-outline-variant border-dashed rounded-xl p-md flex flex-col relative transition-all duration-200 opacity-75">
+<div class="absolute left-0 top-0 bottom-0 w-xs bg-outline rounded-l-xl"></div>
+<div class="flex justify-between items-start mb-md pl-xs">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-surface-variant text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined">archive</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Legacy</h3>
+<span class="font-label-sm text-label-sm text-error bg-error-container px-xs py-[2px] rounded">Inactive</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md pl-xs flex-1">Archived tasks from previous systems.</p>
+<div class="flex justify-between items-center pl-xs pt-sm border-t border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">0 Active Tasks</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Panel Overlay -->
+<div class="fixed inset-0 bg-on-background/20 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300" id="sidePanelOverlay"></div>
+<!-- Side Panel (Edit/Create Category) -->
+<div class="fixed top-0 right-0 h-screen w-full md:w-[400px] bg-surface-container-lowest shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col border-l border-outline-variant" id="sidePanel" style="box-shadow: -10px 0 25px -5px rgba(15, 23, 42, 0.1);">
+<div class="flex justify-between items-center p-lg border-b border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-on-background" id="panelTitle">Edit Category</h3>
+<button class="text-on-surface-variant hover:bg-surface-variant rounded-full p-xs transition-colors" onclick="closePanel()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-lg">
+<form class="flex flex-col gap-lg">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs">Category Name</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-sm py-sm font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-4 focus:ring-primary-container/10 transition-all" type="text" value="Urgent"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs">Description</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-sm py-sm font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-4 focus:ring-primary-container/10 transition-all resize-none" rows="3">High priority tasks requiring immediate attention.</textarea>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs">Category Color</label>
+<div class="flex gap-sm">
+<button class="w-8 h-8 rounded-full bg-[#ef4444] ring-2 ring-offset-2 ring-primary-container flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-white text-sm" style="font-size: 16px;">check</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-[#f97316] hover:scale-110 transition-transform" type="button"></button>
+<button class="w-8 h-8 rounded-full bg-[#eab308] hover:scale-110 transition-transform" type="button"></button>
+<button class="w-8 h-8 rounded-full bg-[#10b981] hover:scale-110 transition-transform" type="button"></button>
+<button class="w-8 h-8 rounded-full bg-[#3b82f6] hover:scale-110 transition-transform" type="button"></button>
+<button class="w-8 h-8 rounded-full bg-[#8b5cf6] hover:scale-110 transition-transform" type="button"></button>
+<button class="w-8 h-8 rounded-full border border-outline-variant bg-surface hover:bg-surface-variant transition-colors flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 16px;">add</span>
+</button>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs">Icon</label>
+<button class="flex items-center justify-between w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-sm py-sm font-body-md text-body-md text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant">priority_high</span>
+<span>priority_high</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant">
+<div>
+<div class="font-label-md text-label-md text-on-surface">Status</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Deactivate to hide from future tasks.</div>
+</div>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</form>
+</div>
+<div class="p-lg border-t border-outline-variant flex gap-md bg-surface-bright">
+<button class="flex-1 bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md py-sm rounded-lg hover:bg-surface-variant transition-colors" onclick="closePanel()">Cancel</button>
+<button class="flex-1 bg-primary-container text-on-primary font-label-md text-label-md py-sm rounded-lg hover:bg-primary transition-colors" onclick="closePanel()">Save Changes</button>
+</div>
+</div>
+<script>
+        const panel = document.getElementById('sidePanel');
+        const overlay = document.getElementById('sidePanelOverlay');
+        const title = document.getElementById('panelTitle');
+
+        function openPanel(mode) {
+            if(mode === 'new') {
+                title.textContent = 'Create Category';
+            } else {
+                title.textContent = 'Edit Category';
+            }
+            
+            overlay.classList.remove('hidden');
+            // small delay to allow display block to apply before changing opacity
+            setTimeout(() => {
+                overlay.classList.remove('opacity-0');
+                panel.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closePanel() {
+            overlay.classList.add('opacity-0');
+            panel.classList.add('translate-x-full');
+            
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+            }, 300);
+        }
+
+        overlay.addEventListener('click', closePanel);
+    </script>
+</body></html>

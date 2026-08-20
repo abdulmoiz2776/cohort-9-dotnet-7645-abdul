@@ -10,6 +10,8 @@ public static class ApplicationServiceRegistration
     public static IServiceCollection AddApplication(
         this IServiceCollection services)
     {
+         ArgumentNullException.ThrowIfNull(services);
+
         var assembly = Assembly.GetExecutingAssembly();
 
         // AutoMapper
@@ -19,10 +21,7 @@ public static class ApplicationServiceRegistration
         services.AddValidatorsFromAssembly(assembly);
 
         // MediatR
-        services.AddMediatR(cfg =>
-        {
-            cfg.RegisterServicesFromAssembly(assembly);
-        });
+        services.AddMediatR(assembly);
 
         return services;
     }

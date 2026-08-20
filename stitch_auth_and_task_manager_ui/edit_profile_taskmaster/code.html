@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Profile - TaskMaster</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f2f4f6",
+                      "primary-container": "#2563eb",
+                      "surface": "#f7f9fb",
+                      "on-primary-container": "#eeefff",
+                      "surface-dim": "#d8dadc",
+                      "tertiary": "#005a82",
+                      "on-surface-variant": "#434655",
+                      "on-error-container": "#93000a",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#2d3133",
+                      "on-surface": "#191c1e",
+                      "on-primary-fixed": "#00174b",
+                      "inverse-primary": "#b4c5ff",
+                      "on-secondary-container": "#54647a",
+                      "surface-container": "#eceef0",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e0e3e5",
+                      "tertiary-container": "#0074a6",
+                      "error-container": "#ffdad6",
+                      "outline": "#737686",
+                      "background": "#f7f9fb",
+                      "primary": "#004ac6",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "primary-fixed": "#dbe1ff",
+                      "error": "#ba1a1a",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed": "#c9e6ff",
+                      "on-tertiary-fixed-variant": "#004c6e",
+                      "secondary-container": "#d0e1fb",
+                      "surface-bright": "#f7f9fb",
+                      "on-secondary-fixed": "#0b1c30",
+                      "on-error": "#ffffff",
+                      "surface-container-high": "#e6e8ea",
+                      "outline-variant": "#c3c6d7",
+                      "on-tertiary-fixed": "#001e2f",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "secondary": "#505f76",
+                      "inverse-on-surface": "#eff1f3",
+                      "tertiary-fixed-dim": "#89ceff",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "on-tertiary-container": "#e4f2ff",
+                      "secondary-fixed": "#d3e4fe",
+                      "surface-variant": "#e0e3e5",
+                      "on-background": "#191c1e",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "surface-tint": "#0053db"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "margin-mobile": "16px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "margin-desktop": "40px",
+                      "sm": "8px",
+                      "2xl": "48px",
+                      "gutter": "24px",
+                      "3xl": "64px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- SideNavBar (Hidden on Mobile, Visible on Desktop) -->
+<nav class="hidden md:flex flex-col h-full w-64 fixed left-0 top-0 border-r border-outline-variant bg-surface-container-lowest py-lg px-md z-20">
+<!-- Brand Logo -->
+<div class="mb-xl px-sm">
+<span class="font-headline-md text-headline-md text-primary">TaskMaster</span>
+</div>
+<!-- Header Profile -->
+<div class="flex items-center gap-md mb-xl px-sm">
+<img alt="User Profile" class="w-12 h-12 rounded-full object-cover" data-alt="A professional headshot of a young man, Alex Rivera, wearing a casual dark blue collared shirt. The lighting is soft and natural, typical of a modern office environment. The background is slightly blurred with subtle hints of office greenery and light gray walls, maintaining a corporate yet approachable modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOS_z3fUKrb_4R5n2b7HQsVQ-KdmRjv84jXnNRm5wNlpGndK7v2cIHmpN4ruPKpyK_QPddU6Sa5HR6y7Nj-DwbALTS4qa6X0UTNMM49dWilMGGwKmyAWXSamVEjsDvGZ8ANPNBpyQwGK_2pjs-mKE1qGTvUvyUDDraBal-Oy90Lwy1CNtYuZK7PUVjyJuOxwGMK2Q7tY8hW6DsFKBCLc7Gaeyni72lo_2f_QUQiysvOLYahxkP01Wa"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Alex Rivera</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Premium Plan</p>
+</div>
+</div>
+<!-- Primary CTA -->
+<button class="bg-primary-container text-on-primary font-label-md text-label-md rounded-lg py-sm px-md mb-xl flex items-center justify-center gap-xs hover:bg-primary transition-colors active:scale-95 shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">add</span>
+            New Task
+        </button>
+<!-- Navigation Links -->
+<ul class="flex flex-col gap-xs flex-1">
+<li>
+<a class="flex items-center gap-md px-sm py-sm text-secondary hover:bg-surface-container-high transition-all duration-200 rounded-lg active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-sm py-sm text-secondary hover:bg-surface-container-high transition-all duration-200 rounded-lg active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">assignment</span>
+<span class="font-label-md text-label-md">My Tasks</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-sm py-sm bg-secondary-container text-on-secondary-container font-semibold rounded-lg active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-sm py-sm text-secondary hover:bg-surface-container-high transition-all duration-200 rounded-lg active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">devices</span>
+<span class="font-label-md text-label-md">Sessions</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-sm py-sm text-secondary hover:bg-surface-container-high transition-all duration-200 rounded-lg active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</li>
+</ul>
+<!-- Footer Links -->
+<ul class="flex flex-col gap-xs mt-auto pt-lg border-t border-outline-variant">
+<li>
+<a class="flex items-center gap-md px-sm py-sm text-secondary hover:bg-surface-container-high transition-all duration-200 rounded-lg active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-sm py-sm text-secondary hover:bg-surface-container-high transition-all duration-200 rounded-lg active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- TopNavBar (Visible on Mobile, Hidden on Desktop) -->
+<header class="md:hidden flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 bg-surface-container-lowest border-b border-outline-variant shadow-sm z-20">
+<span class="font-headline-md text-headline-md font-bold text-primary">TaskMaster</span>
+<button class="text-on-surface-variant p-sm rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 pt-16 md:pt-0 min-h-screen">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-lg md:py-xl">
+<!-- Page Header -->
+<div class="mb-xl">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-xs">Edit Profile</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage your personal information and preferences.</p>
+</div>
+<!-- Bento Grid Layout for Edit Profile -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Avatar & Status Column (Left on Desktop, Top on Mobile) -->
+<div class="lg:col-span-4 flex flex-col gap-lg">
+<!-- Avatar Upload Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm flex flex-col items-center text-center">
+<div class="relative group cursor-pointer mb-md">
+<img alt="User Profile" class="w-32 h-32 rounded-full object-cover border-4 border-surface" data-alt="A professional headshot of a young man, Alex Rivera, wearing a casual dark blue collared shirt. The lighting is soft and natural, typical of a modern office environment. The background is slightly blurred with subtle hints of office greenery and light gray walls, maintaining a corporate yet approachable modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPktY8fm1Ohgjsnu15l3DsG-NZQqllMsDe95G3gAjknhl-ZoE221CasjFfjHLCGA61FU9rxhVCiPTXiSVbA-hzMBZ3FB2VnmJv0wx9SWhG8FfPNzOVGbu9u2R8ZcRkI3DiqePax4DLbzHH9fOQ44V6j7DTr0k4S163_C1lq6xxQDkGmGxNQQ4Vo5yioKNhDxi-aTdLlDhpwhijFg8kfhjUcwOBUWVaEKzVbnAZq3us_kDSl1dWYJqG"/>
+<div class="absolute inset-0 bg-inverse-surface/40 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+<span class="material-symbols-outlined text-on-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+</div>
+<!-- Small badge for premium status -->
+<div class="absolute bottom-2 right-2 bg-primary-container text-on-primary w-8 h-8 rounded-full flex items-center justify-center shadow-md border-2 border-surface">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Alex Rivera</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Product Designer</p>
+<div class="flex gap-sm">
+<button class="px-md py-sm border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container-low transition-colors shadow-[0_1px_2px_0_rgba(15,23,42,0.05)]">
+                                Change Picture
+                            </button>
+</div>
+</div>
+<!-- Profile Stats/Completion Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[20px]">analytics</span>
+                            Profile Completion
+                        </h3>
+<div class="w-full bg-surface-container-highest rounded-full h-2 mb-sm">
+<div class="bg-primary-container h-2 rounded-full w-[85%]"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-right">85% Complete</p>
+<p class="font-body-sm text-body-sm text-secondary mt-md">Add a short bio to complete your profile.</p>
+</div>
+</div>
+<!-- Main Form Column -->
+<div class="lg:col-span-8 flex flex-col gap-lg">
+<form class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg md:p-xl shadow-sm flex flex-col gap-lg">
+<div class="border-b border-outline-variant pb-md mb-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Personal Information</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Update your basic profile details here.</p>
+</div>
+<!-- Grid for form fields -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Full Name -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="fullName">Full Name</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-[20px]">person</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all shadow-sm" id="fullName" placeholder="Enter your full name" type="text" value="Alex Rivera"/>
+</div>
+</div>
+<!-- Job Title -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="jobTitle">Job Title</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-[20px]">work</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all shadow-sm" id="jobTitle" placeholder="Enter your job title" type="text" value="Product Designer"/>
+</div>
+</div>
+<!-- Email -->
+<div class="flex flex-col gap-xs md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="email">Email Address</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-[20px]">mail</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all shadow-sm" id="email" placeholder="you@example.com" type="email" value="alex.rivera@example.com"/>
+</div>
+</div>
+<!-- Location -->
+<div class="flex flex-col gap-xs md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="location">Location</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-[20px]">location_on</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all shadow-sm" id="location" placeholder="City, Country" type="text" value="San Francisco, CA"/>
+</div>
+</div>
+</div>
+<!-- Form Actions -->
+<div class="mt-lg pt-lg border-t border-outline-variant flex justify-end gap-md items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden md:inline-block mr-auto">Last saved: Today at 10:24 AM</span>
+<button class="px-lg py-sm font-label-md text-label-md text-secondary hover:text-on-surface transition-colors bg-transparent border-0 cursor-pointer" type="button">
+                                Cancel
+                            </button>
+<button class="px-lg py-sm bg-primary-container text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary transition-colors shadow-sm active:scale-95 flex items-center gap-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                                Save Changes
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+</body></html>

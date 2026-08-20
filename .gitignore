@@ -1,8 +1,23 @@
+# .NET generated files
+**/bin/
+**/obj/
+
+# .NET logs
+**/Logs/
+**/logs/
+
+# Frontend
+**/node_modules/
+**/dist/
+
+# Environment files
+**/.env
+**/.env.*
+
+# Visual Studio / VS Code
 .vs/
-bin/
-obj/
+.vscode/
 
-node_modules/
-
-*.user
-*.suo
+# OS files
+.DS_Store
+Thumbs.db

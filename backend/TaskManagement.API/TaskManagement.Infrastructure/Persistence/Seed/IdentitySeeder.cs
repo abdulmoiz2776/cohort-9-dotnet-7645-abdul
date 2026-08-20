@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TaskManagement.Domain.Identity;
 
@@ -8,41 +9,68 @@ public static class IdentitySeeder
 {
     public static async Task SeedAsync(IServiceProvider serviceProvider)
     {
-        var roleManager = serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
-        var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+        var roleManager = serviceProvider
+            .GetRequiredService<RoleManager<ApplicationRole>>();
+
+        var userManager = serviceProvider
+            .GetRequiredService<UserManager<ApplicationUser>>();
+
+        var configuration = serviceProvider
+            .GetRequiredService<IConfiguration>();
 
         await SeedRolesAsync(roleManager);
-        await SeedAdminAsync(userManager);
+        await SeedAdminAsync(userManager, configuration);
     }
 
-    private static async Task SeedRolesAsync(RoleManager<ApplicationRole> roleManager)
+
+    private static async Task SeedRolesAsync(
+        RoleManager<ApplicationRole> roleManager)
     {
-        string[] roles = { "Admin", "User" };
+        string[] roles = 
+        { 
+            "Admin", 
+            "User" 
+        };
 
         foreach (var role in roles)
         {
             if (!await roleManager.RoleExistsAsync(role))
             {
-                await roleManager.CreateAsync(new ApplicationRole
-                {
-                    Name = role,
-                    NormalizedName = role.ToUpper()
-                });
+                await roleManager.CreateAsync(
+                    new ApplicationRole
+                    {
+                        Name = role,
+                        NormalizedName = role.ToUpper()
+                    });
             }
         }
     }
 
-    private static async Task SeedAdminAsync(UserManager<ApplicationUser> userManager)
+
+    private static async Task SeedAdminAsync(
+        UserManager<ApplicationUser> userManager,
+        IConfiguration configuration)
     {
-        const string email = "admin@taskmanagement.com";
-        const string password = "Admin@123";
+        var email = configuration["AdminUser:Email"];
+        var password = configuration["AdminUser:Password"];
 
-        var admin = await userManager.FindByEmailAsync(email);
 
-        if (admin != null)
+        if (string.IsNullOrWhiteSpace(email) ||
+            string.IsNullOrWhiteSpace(password))
+        {
+            return;
+        }
+
+
+        var existingAdmin = await userManager
+            .FindByEmailAsync(email);
+
+
+        if (existingAdmin != null)
             return;
 
-        admin = new ApplicationUser
+
+        var admin = new ApplicationUser
         {
             UserName = email,
             Email = email,
@@ -53,11 +81,21 @@ public static class IdentitySeeder
             CreatedAt = DateTime.UtcNow
         };
 
-        var result = await userManager.CreateAsync(admin, password);
 
-        if (result.Succeeded)
+        var result = await userManager
+            .CreateAsync(admin, password);
+
+
+        if (!result.Succeeded)
         {
-            await userManager.AddToRoleAsync(admin, "Admin");
+            throw new InvalidOperationException(
+                string.Join(", ",
+                result.Errors.Select(x => x.Description)));
         }
+
+
+        await userManager.AddToRoleAsync(
+            admin,
+            "Admin");
     }
 }

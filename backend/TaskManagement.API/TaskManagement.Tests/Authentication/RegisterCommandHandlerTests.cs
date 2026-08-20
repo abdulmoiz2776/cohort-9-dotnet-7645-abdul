@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using TaskManagement.Application.Common.Interfaces;
 using TaskManagement.Application.Features.Authentication.Commands.Register;
 using TaskManagement.Domain.Identity;
+using Microsoft.Extensions.Logging;
 
 
 namespace TaskManagement.Tests.Authentication;
@@ -19,6 +20,18 @@ public class RegisterCommandHandlerTests
     public RegisterCommandHandlerTests()
     {
         _emailMock = new Mock<IEmailService>();
+    }
+
+    private Mock<IApplicationUrlService> GetApplicationUrlServiceMock()
+    {
+        var mock = new Mock<IApplicationUrlService>();
+        mock.SetupGet(x => x.FrontendBaseUrl).Returns("http://localhost:5173");
+        return mock;
+    }
+
+    private Mock<ILogger<RegisterCommandHandler>> GetLoggerMock()
+    {
+        return new Mock<ILogger<RegisterCommandHandler>>();
     }
 
 
@@ -46,9 +59,14 @@ public class RegisterCommandHandlerTests
             .ReturnsAsync(new ApplicationUser());
 
 
+        var appUrlMock = GetApplicationUrlServiceMock();
+        var loggerMock = GetLoggerMock();
+
         var handler = new RegisterCommandHandler(
             userManager.Object,
-            _emailMock.Object);
+            _emailMock.Object,
+            appUrlMock.Object,
+            loggerMock.Object);
 
 
 
@@ -97,9 +115,14 @@ public class RegisterCommandHandlerTests
 
 
 
+        var appUrlMock = GetApplicationUrlServiceMock();
+        var loggerMock = GetLoggerMock();
+
         var handler = new RegisterCommandHandler(
             userManager.Object,
-            _emailMock.Object);
+            _emailMock.Object,
+            appUrlMock.Object,
+            loggerMock.Object);
 
 
 
@@ -159,9 +182,14 @@ public class RegisterCommandHandlerTests
 
 
 
+        var appUrlMock = GetApplicationUrlServiceMock();
+        var loggerMock = GetLoggerMock();
+
         var handler = new RegisterCommandHandler(
             userManager.Object,
-            _emailMock.Object);
+            _emailMock.Object,
+            appUrlMock.Object,
+            loggerMock.Object);
 
 
 
@@ -235,9 +263,14 @@ public class RegisterCommandHandlerTests
 
 
 
+        var appUrlMock = GetApplicationUrlServiceMock();
+        var loggerMock = GetLoggerMock();
+
         var handler = new RegisterCommandHandler(
             userManager.Object,
-            _emailMock.Object);
+            _emailMock.Object,
+            appUrlMock.Object,
+            loggerMock.Object);
 
 
 

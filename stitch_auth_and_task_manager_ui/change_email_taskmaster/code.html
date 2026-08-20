@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskMaster - Change Email</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ba1a1a",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-tertiary-fixed-variant": "#004c6e",
+                      "outline-variant": "#c3c6d7",
+                      "surface-container-low": "#f2f4f6",
+                      "secondary-fixed": "#d3e4fe",
+                      "on-surface": "#191c1e",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed": "#0b1c30",
+                      "surface-container": "#eceef0",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "inverse-on-surface": "#eff1f3",
+                      "secondary-container": "#d0e1fb",
+                      "inverse-surface": "#2d3133",
+                      "surface": "#f7f9fb",
+                      "inverse-primary": "#b4c5ff",
+                      "on-error": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "outline": "#737686",
+                      "primary-container": "#2563eb",
+                      "secondary": "#505f76",
+                      "on-primary-container": "#eeefff",
+                      "on-error-container": "#93000a",
+                      "surface-dim": "#d8dadc",
+                      "surface-container-high": "#e6e8ea",
+                      "on-tertiary-container": "#e4f2ff",
+                      "on-secondary-container": "#54647a",
+                      "tertiary-container": "#0074a6",
+                      "primary": "#004ac6",
+                      "error-container": "#ffdad6",
+                      "background": "#f7f9fb",
+                      "surface-bright": "#f7f9fb",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-tint": "#0053db",
+                      "on-tertiary-fixed": "#001e2f",
+                      "on-primary-fixed": "#00174b",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#89ceff",
+                      "primary-fixed": "#dbe1ff",
+                      "surface-variant": "#e0e3e5",
+                      "on-surface-variant": "#434655",
+                      "tertiary-fixed": "#c9e6ff",
+                      "on-background": "#191c1e",
+                      "tertiary": "#005a82"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "3xl": "64px",
+                      "2xl": "48px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "margin-mobile": "16px",
+                      "lg": "24px",
+                      "margin-desktop": "40px",
+                      "xl": "32px",
+                      "base": "4px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface h-full w-full flex text-on-surface antialiased overflow-hidden">
+<!-- SideNavBar (Suppressed for focused Settings/Transactional view per guidelines, but user requested in context of Settings, let's keep it minimal if we were to show it, but wait: "You MUST exclude the navigation shell if the page intent is: Linear/Transactional or Task-Focused: Any sub-page featuring a "Close" or "Back" action that implies a temporary departure from the main navigation flow." - Changing email is a highly focused sub-task. I will suppress the global nav to prioritize the canvas, adhering strictly to the "Shell Visibility & Relevance" mandate.) -->
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full w-full max-w-[1280px] mx-auto relative z-10 overflow-y-auto">
+<!-- Header / Back Action -->
+<div class="w-full flex items-center justify-between px-margin-desktop py-lg border-b border-outline-variant bg-surface-container-lowest shadow-sm z-20">
+<div class="flex items-center gap-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary font-bold">Account Settings</h1>
+</div>
+<!-- Optional close for modal-like feel -->
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+</div>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 p-margin-desktop flex items-start justify-center">
+<!-- Focused Card Container -->
+<div class="w-full max-w-md bg-surface-container-lowest rounded-xl shadow-[0_20px_25px_-5px_rgba(15,23,42,0.1)] border border-outline-variant overflow-hidden mt-2xl">
+<!-- Card Header -->
+<div class="px-xl py-lg border-b border-outline-variant bg-surface-container-lowest">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Change Email</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Update your primary email address. This will be used for login and important notifications.</p>
+</div>
+<!-- Form Area -->
+<form class="p-xl flex flex-col gap-lg">
+<!-- Current Email Display (Read-only) -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Current Email</label>
+<div class="flex items-center px-md py-sm bg-surface-container-low border border-outline-variant rounded-lg">
+<span class="material-symbols-outlined text-secondary mr-sm" style="font-variation-settings: 'FILL' 0;">mail</span>
+<span class="font-body-md text-body-md text-secondary">admin@taskmaster.enterprises</span>
+</div>
+</div>
+<div class="h-px bg-outline-variant w-full my-xs"></div>
+<!-- New Email Input -->
+<div class="flex flex-col gap-xs group relative">
+<label class="font-label-md text-label-md text-on-surface" for="new_email">New Email Address</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant group-focus-within:text-primary transition-colors">alternate_email</span>
+</div>
+<input class="w-full pl-3xl pr-md py-sm bg-surface-container-lowest border border-outline-variant rounded-lg focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-body-md text-body-md text-on-surface placeholder:text-outline outline-none" id="new_email" name="new_email" placeholder="e.g. new.email@company.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Verification Input -->
+<div class="flex flex-col gap-xs group relative">
+<label class="font-label-md text-label-md text-on-surface" for="current_password">Current Password</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant group-focus-within:text-primary transition-colors">lock</span>
+</div>
+<input class="w-full pl-3xl pr-[48px] py-sm bg-surface-container-lowest border border-outline-variant rounded-lg focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-body-md text-body-md text-on-surface placeholder:text-outline outline-none" id="current_password" name="current_password" placeholder="Verify it's you" required="" type="password"/>
+<!-- Visibility Toggle -->
+<button class="absolute inset-y-0 right-0 pr-md flex items-center text-on-surface-variant hover:text-primary transition-colors" title="Toggle password visibility" type="button">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Required to confirm sensitive changes.</p>
+</div>
+<!-- Form Actions -->
+<div class="mt-lg flex gap-md justify-end">
+<button class="px-md py-sm font-label-md text-label-md text-secondary hover:text-on-surface transition-colors" type="button">
+                            Cancel
+                        </button>
+<button class="px-lg py-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-[#1D4ED8] transition-colors shadow-sm flex items-center gap-xs" type="submit">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mark_email_read</span>
+                            Verify New Email
+                        </button>
+</div>
+</form>
+</div>
+</div>
+</main>
+</body></html>

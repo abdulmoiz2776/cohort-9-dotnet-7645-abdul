@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Tasks - TaskMaster</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#f7f9fb",
+                      "inverse-on-surface": "#eff1f3",
+                      "primary-fixed": "#dbe1ff",
+                      "inverse-primary": "#b4c5ff",
+                      "on-tertiary-container": "#e4f2ff",
+                      "on-error": "#ffffff",
+                      "outline": "#737686",
+                      "inverse-surface": "#2d3133",
+                      "on-surface": "#191c1e",
+                      "surface-variant": "#e0e3e5",
+                      "primary": "#004ac6",
+                      "tertiary": "#005a82",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "error": "#ba1a1a",
+                      "on-primary-container": "#eeefff",
+                      "secondary": "#505f76",
+                      "tertiary-container": "#0074a6",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#001e2f",
+                      "on-background": "#191c1e",
+                      "tertiary-fixed": "#c9e6ff",
+                      "surface-container": "#eceef0",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "on-secondary-container": "#54647a",
+                      "on-primary-fixed": "#00174b",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#004c6e",
+                      "surface-container-highest": "#e0e3e5",
+                      "surface": "#f7f9fb",
+                      "primary-container": "#2563eb",
+                      "surface-container-high": "#e6e8ea",
+                      "outline-variant": "#c3c6d7",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "on-secondary-fixed": "#0b1c30",
+                      "surface-tint": "#0053db",
+                      "surface-container-low": "#f2f4f6",
+                      "secondary-fixed": "#d3e4fe",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "secondary-container": "#d0e1fb",
+                      "on-error-container": "#93000a",
+                      "on-surface-variant": "#434655",
+                      "tertiary-fixed-dim": "#89ceff",
+                      "background": "#f7f9fb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "base": "4px",
+                      "margin-desktop": "40px",
+                      "3xl": "64px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "2xl": "48px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-lg-mobile": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c3c6d7; border-radius: 999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #737686; }
+        
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Category stripes for bento grid */
+        .stripe-primary { border-left: 4px solid #004ac6; }
+        .stripe-tertiary { border-left: 4px solid #005a82; }
+        .stripe-warning { border-left: 4px solid #ba1a1a; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex">
+<!-- JSON Component: SideNavBar (Primary Navigation) -->
+<!-- Applying style_component_shape: h-screen w-64 fixed left-0 top-0 -->
+<!-- Applying style_separation_logic: border-r border-outline-variant -->
+<!-- Applying style_bg_color: bg-surface-container-lowest -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-surface-container-lowest shadow-sm z-50">
+<!-- Applying style_shell_layout: flex flex-col h-full p-md gap-sm -->
+<div class="flex flex-col h-full p-md gap-sm">
+<!-- Header section of SideNav -->
+<div class="flex items-center gap-md mb-lg px-sm">
+<img alt="User Profile" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a smiling project manager, set against a pristine, well-lit white background typical of a modern corporate environment. The lighting is soft and even, highlighting a clean, light-mode aesthetic. They are wearing a simple, elegant dark gray blazer, perfectly aligning with a trustworthy, reliable corporate identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrTZ7enpZ2E-ItpHI4v_1DNe_j3Bb2dWkBj83OCD7oQKvNu_krvWurZ_4DcHvBbHg5cChxWDgVcski4o7oWS3CkMpp4SMK9uA3YfGjo-cakqXuQmsKJjUGIYJzD4Ehvqty_ftWdloUlF8zMFLUrLszBTPy0OYmw4yCMASldOCmme6g5aK_TnvNROM_Nk_sbaCjXib-BRL6PcWW7xe0lBT1c7X7aA021kquDOKpGHoSMj1yGQ1qFnoM"/>
+<div>
+<!-- Applying style_brand_logo for title -->
+<h1 class="font-headline-md text-headline-md font-black text-primary">TaskMaster Admin</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">admin@taskmaster.com</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<ul class="flex flex-col gap-xs flex-1">
+<!-- Tab 0: Dashboard (Inactive) -->
+<li>
+<!-- Applying style_inactive_navigation and style_universal_hover -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all duration-150 font-label-md text-label-md active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">dashboard</span>
+                        Dashboard
+                    </a>
+</li>
+<!-- Tab 1: Tasks (Active - Mapping "My Tasks" to "Tasks") -->
+<li>
+<!-- Applying style_active_navigation -->
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container font-semibold rounded-lg font-label-md text-label-md active:scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">assignment</span>
+                        Tasks
+                    </a>
+</li>
+<!-- Tab 2: Users (Inactive) -->
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all duration-150 font-label-md text-label-md active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">group</span>
+                        Users
+                    </a>
+</li>
+<!-- Tab 3: Categories (Inactive) -->
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all duration-150 font-label-md text-label-md active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">category</span>
+                        Categories
+                    </a>
+</li>
+<!-- Tab 4: Settings (Inactive) -->
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all duration-150 font-label-md text-label-md active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">settings</span>
+                        Settings
+                    </a>
+</li>
+</ul>
+<!-- CTA Button -->
+<button class="w-full flex items-center justify-center gap-sm bg-primary-container text-on-primary rounded-lg py-sm font-label-md text-label-md hover:opacity-90 transition-opacity mt-auto mb-md active:scale-95 shadow-[0_1px_3px_0_rgba(15,23,42,0.1)]">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+                New Task
+            </button>
+<!-- Footer Links -->
+<div class="border-t border-outline-variant pt-md">
+<ul class="flex flex-col gap-xs">
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all duration-150 font-label-md text-label-md active:scale-95" href="#">
+<span class="material-symbols-outlined text-outline">help</span>
+                            Help Center
+                        </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all duration-150 font-label-md text-label-md active:scale-95" href="#">
+<span class="material-symbols-outlined text-outline">logout</span>
+                            Logout
+                        </a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<!-- Offset by sidebar width on desktop -->
+<main class="flex-1 flex flex-col min-h-screen md:ml-[256px] bg-background overflow-hidden relative">
+<!-- Mobile Header (Hidden on Desktop, replacing SideNav on small screens) -->
+<header class="md:hidden flex items-center justify-between p-margin-mobile bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-40">
+<div class="flex items-center gap-sm">
+<button class="text-on-surface p-xs rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-black text-primary">TaskMaster</h1>
+</div>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A small circular avatar placeholder image showing a minimalistic abstract geometric pattern in shades of blue and gray, designed to perfectly match a corporate modernism light-mode aesthetic. The shapes are crisp, precise, and arranged in an orderly fashion, evoking a sense of structure and reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB14mn6GaDs7EDRbFZn1Imp1n015SoCRx6JBSnqho8Q5LAV1As2l00c6i3gwjxpSSKDo7dHP02Glt7xjyCOkzNo__L7gKq0FEcoFItLhv9uvgCyx4HTMs5yneWJunGUHPZMt3Ql_3OXyYaWRl-X8_deqY_SX5iyz1WDCo9pycQI6iV0EkrR8RXD7PpMVoqhRnDH8JN8eTBwo0_sgPSRibankAAO-BTps8AHG9RhvXpkzEdbTb14ZY5-"/>
+</header>
+<!-- Page Canvas Content -->
+<div class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop space-y-xl max-w-[1280px] w-full mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-background mb-xs">My Tasks</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage and track your assigned work items.</p>
+</div>
+<div class="flex items-center gap-sm">
+<div class="relative w-full md:w-64">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-xl pr-sm py-sm rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all shadow-[0_1px_2px_rgba(15,23,42,0.05)]" placeholder="Search tasks..." type="text"/>
+</div>
+<button aria-label="Filter tasks" class="flex items-center justify-center p-sm rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Analytics/Stats Row (Bento style small cards) -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col shadow-[0_1px_3px_0_rgba(15,23,42,0.05)]">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Total Active</span>
+<span class="font-headline-lg text-headline-lg text-on-background">24</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col shadow-[0_1px_3px_0_rgba(15,23,42,0.05)]">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Due Today</span>
+<span class="font-headline-lg text-headline-lg text-primary">3</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col shadow-[0_1px_3px_0_rgba(15,23,42,0.05)]">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Overdue</span>
+<span class="font-headline-lg text-headline-lg text-error">1</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col shadow-[0_1px_3px_0_rgba(15,23,42,0.05)]">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Completed (Week)</span>
+<span class="font-headline-lg text-headline-lg text-tertiary">18</span>
+</div>
+</div>
+<!-- Bento Grid Task Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg items-start">
+<!-- Main Featured Task (High Priority / Action Needed) - Span 8 columns -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant stripe-warning rounded-xl shadow-[0_10px_15px_-3px_rgba(15,23,42,0.04)] overflow-hidden flex flex-col h-full">
+<div class="p-lg flex-1">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<span class="bg-error-container text-on-error-container font-label-sm text-label-sm px-sm py-[2px] rounded-full flex items-center gap-xs">
+<span class="material-symbols-outlined" style="font-size: 14px;">warning</span>
+                                    Urgent
+                                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Due in 2 hours</span>
+</div>
+<button class="text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-sm">Finalize Q3 Marketing Budget Proposal</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Review the line items for the digital advertising spend and cross-reference with the historical Q2 data. Ensure all departmental requests are aligned with the new strategic corporate guidelines before submitting to the VP of Finance.</p>
+</div>
+<div class="bg-surface border-t border-outline-variant p-md flex items-center justify-between">
+<div class="flex -space-x-2">
+<img alt="Collaborator" class="w-8 h-8 rounded-full border-2 border-surface-container-lowest object-cover" data-alt="A close-up professional headshot of a team member, bright light mode aesthetic, corporate modern style. The individual wears a sharp navy suit jacket against a pure white background, looking directly at the camera with a confident, approachable expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuNew4P8Pryc1qgUrxtwcVj6qrTVCG80HCpA-IMUR-KX3FOfpfDfs7z3zG0uKAua4iZJ5YzYhvDuE-e7e7pIXmHt3PNsToeyMQa4mYaaeQ4jQ1FYEvB49FkkEzrLpL0oVmxRu3qoNDYCu6jQAlFmvF-bV2CGpPMOe9FVgOuza3FlNQdWc30juqVVVpk3G8tGLR7VgZpcW2HNhLWuU5_M196pvn0qm8gQeUMli76E0fLU5dKbRjKUsr"/>
+<img alt="Collaborator" class="w-8 h-8 rounded-full border-2 border-surface-container-lowest object-cover" data-alt="Another close-up professional headshot of a team member in a corporate modern setting. Clean white background, soft ambient lighting. They wear a light gray professional shirt, embodying a minimalist and efficient visual language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYSHoBH7nkQGh7tMe6QZ8wAyi6LGCHo6Zdkb6rYKTmr-c_LPyyNN2RYTb-OjRdht2A3GPYDSEBWjlBGYGbPVnPfUiRIAA9JD62VaCJXVRscQYGkMMOdd6JoBDISSoPCGvEQsgF_tn5zNPPPISZkqHoA2vRNl4otDx6sr3ui12xGPH1Nv9BxMmrvY-DnbdMr_Aw6DhraJggFqIvZt7vbnVICdvUEzRuCIyJoujT485C62tHycK993U_"/>
+</div>
+<button class="bg-primary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors shadow-[0_1px_2px_rgba(15,23,42,0.1)]">
+                            Mark Complete
+                        </button>
+</div>
+</div>
+<!-- Secondary Featured (Upcoming) - Span 4 columns -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant stripe-primary rounded-xl shadow-[0_1px_3px_0_rgba(15,23,42,0.1)] p-lg flex flex-col h-full min-h-[240px]">
+<div class="flex justify-between items-start mb-md">
+<span class="bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm px-sm py-[2px] rounded-full">In Progress</span>
+<button class="text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<h3 class="font-headline-md text-headline-md-mobile text-on-background mb-sm leading-tight">Prepare Client Onboarding Deck</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-1 mb-md line-clamp-3">Draft the initial slides covering system architecture, user roles, and security protocols for the Acme Corp implementation kickoff meeting next Tuesday.</p>
+<div class="flex items-center gap-xs text-on-surface-variant font-label-sm text-label-sm mt-auto">
+<span class="material-symbols-outlined" style="font-size: 16px;">calendar_today</span>
+<span>Due Tomorrow</span>
+</div>
+</div>
+<!-- Standard Grid Items - Span 4 columns each -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant stripe-tertiary rounded-xl p-md hover:shadow-[0_10px_15px_-3px_rgba(15,23,42,0.08)] transition-shadow duration-200 cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-sm py-[2px] rounded-full">To Do</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors opacity-0 group-hover:opacity-100">arrow_forward</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-background mb-xs font-semibold">Review Security Audit Logs</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-sm">Check the automated reports from the weekend infrastructure scan for any anomalies or unpatched vulnerabilities.</p>
+<div class="text-on-surface-variant font-label-sm text-label-sm">
+                        Due: Oct 26
+                    </div>
+</div>
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant stripe-tertiary rounded-xl p-md hover:shadow-[0_10px_15px_-3px_rgba(15,23,42,0.08)] transition-shadow duration-200 cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-sm py-[2px] rounded-full">To Do</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors opacity-0 group-hover:opacity-100">arrow_forward</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-background mb-xs font-semibold">Update API Documentation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-sm">Add endpoints for the new user management module released in v2.4. Ensure examples are provided in cURL and Python.</p>
+<div class="text-on-surface-variant font-label-sm text-label-sm">
+                        Due: Oct 28
+                    </div>
+</div>
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant stripe-primary rounded-xl p-md hover:shadow-[0_10px_15px_-3px_rgba(15,23,42,0.08)] transition-shadow duration-200 cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm px-sm py-[2px] rounded-full">In Progress</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors opacity-0 group-hover:opacity-100">arrow_forward</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-background mb-xs font-semibold">Design System Component Sync</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-sm">Align the frontend implementation of the new data table with the Figma tokens provided by the design team.</p>
+<div class="text-on-surface-variant font-label-sm text-label-sm">
+                        Due: Oct 29
+                    </div>
+</div>
+</div>
+<!-- Bottom spacing before footer -->
+<div class="h-xl"></div>
+</div>
+<!-- JSON Component: Footer (Contextualized for main content area) -->
+<footer class="bg-surface-bright w-full py-xl border-t border-outline-variant mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop w-full max-w-[1280px] mx-auto gap-md">
+<div class="font-label-md text-label-md font-bold text-on-surface">
+                    © 2024 TaskMaster Inc. All rights reserved.
+                </div>
+<div class="flex gap-lg">
+<a class="font-body-sm text-body-sm text-secondary hover:underline transition-opacity hover:opacity-75" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-secondary hover:underline transition-opacity hover:opacity-75" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-secondary hover:underline transition-opacity hover:opacity-75" href="#">Cookie Policy</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

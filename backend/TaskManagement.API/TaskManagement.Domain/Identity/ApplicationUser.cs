@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using TaskManagement.Domain.Entities;
 
 namespace TaskManagement.Domain.Identity;
 
@@ -27,4 +28,8 @@ public class ApplicationUser : IdentityUser
 
     public ICollection<UserSession> UserSessions { get; set; }
         = new List<UserSession>();
+
+    public ICollection<TaskItem> CreatedTasks { get; set; } = new List<TaskItem>();
+
+    public ICollection<TaskItem> AssignedTasks { get; set; } = new List<TaskItem>();
 }

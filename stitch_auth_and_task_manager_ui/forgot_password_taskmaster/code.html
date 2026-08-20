@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskMaster - Forgot Password</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f2f4f6",
+                        "primary-container": "#2563eb",
+                        "surface": "#f7f9fb",
+                        "on-primary-container": "#eeefff",
+                        "surface-dim": "#d8dadc",
+                        "tertiary": "#005a82",
+                        "on-surface-variant": "#434655",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed": "#00174b",
+                        "inverse-primary": "#b4c5ff",
+                        "on-secondary-container": "#54647a",
+                        "surface-container": "#eceef0",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-container": "#0074a6",
+                        "error-container": "#ffdad6",
+                        "outline": "#737686",
+                        "background": "#f7f9fb",
+                        "primary": "#004ac6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "primary-fixed": "#dbe1ff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#c9e6ff",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "secondary-container": "#d0e1fb",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "outline-variant": "#c3c6d7",
+                        "on-tertiary-fixed": "#001e2f",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary": "#505f76",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-tertiary-container": "#e4f2ff",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-variant": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-tint": "#0053db"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "margin-desktop": "40px",
+                        "sm": "8px",
+                        "2xl": "48px",
+                        "gutter": "24px",
+                        "3xl": "64px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F8FAFC; /* Level 0 Background */
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col font-body-md text-body-md text-on-surface">
+<!-- Note: TopNavBar is suppressed as this is a linear/transactional flow (password reset), prioritizing the content canvas. -->
+<main class="flex-grow flex items-center justify-center p-margin-mobile md:p-margin-desktop">
+<div class="w-full max-w-[440px] bg-surface-container-lowest rounded-xl shadow-[0_20px_25px_-5px_rgba(15,23,42,0.1)] border border-outline-variant p-2xl">
+<div class="text-center mb-xl">
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-container/10 mb-sm">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 0;">key</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface mb-xs">Forgot Password</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Enter your email and we'll send you a link to reset your password.</p>
+</div>
+<form class="space-y-lg">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs" for="email">Email Address</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-sm flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline" style="font-size: 20px;">mail</span>
+</div>
+<input class="block w-full pl-lg py-sm border border-outline-variant rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:border-primary-container focus:ring focus:ring-primary-container/10 transition-shadow outline-none" id="email" name="email" placeholder="name@example.com" required="" type="email"/>
+</div>
+</div>
+<button class="w-full py-sm px-md bg-primary-container text-on-primary rounded-lg font-label-md text-label-md hover:bg-[#1D4ED8] transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2" type="submit">
+                    Send Reset Link
+                </button>
+</form>
+<div class="mt-xl text-center">
+<a class="inline-flex items-center gap-xs font-label-md text-label-md text-secondary hover:text-primary-container transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span>
+                    Back to Login
+                </a>
+</div>
+</div>
+</main>
+</body></html>

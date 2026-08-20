@@ -118,11 +118,27 @@ public class LoginCommandHandler
                 };
             }
 
+            //if (!signInResult.Succeeded)
+            //{
+            //    _logger.LogWarning(
+            //        "Invalid password for {Email}",
+            //        request.Email);
+
+            //    return new LoginResponse
+            //    {
+            //        Succeeded = false,
+            //        Message = "Invalid email or password."
+            //    };
+            //}
             if (!signInResult.Succeeded)
             {
                 _logger.LogWarning(
-                    "Invalid password for {Email}",
-                    request.Email);
+                    "Login failed for {Email}. Succeeded={Succeeded}, IsNotAllowed={IsNotAllowed}, IsLockedOut={IsLockedOut}, RequiresTwoFactor={RequiresTwoFactor}",
+                    request.Email,
+                    signInResult.Succeeded,
+                    signInResult.IsNotAllowed,
+                    signInResult.IsLockedOut,
+                    signInResult.RequiresTwoFactor);
 
                 return new LoginResponse
                 {

@@ -33,6 +33,9 @@ public static class InfrastructureServiceRegistration
             options.UseSqlServer(
                 configuration.GetConnectionString("DefaultConnection")));
 
+        services.AddScoped<IApplicationDbContext>(provider =>
+            provider.GetRequiredService<ApplicationDbContext>());
+
         services.Configure<AppSettings>(
     configuration.GetSection(AppSettings.SectionName));
 

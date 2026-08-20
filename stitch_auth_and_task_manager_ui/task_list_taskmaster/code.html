@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskMaster - Tasks</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#f7f9fb",
+                      "inverse-on-surface": "#eff1f3",
+                      "primary-fixed": "#dbe1ff",
+                      "inverse-primary": "#b4c5ff",
+                      "on-tertiary-container": "#e4f2ff",
+                      "on-error": "#ffffff",
+                      "outline": "#737686",
+                      "inverse-surface": "#2d3133",
+                      "on-surface": "#191c1e",
+                      "surface-variant": "#e0e3e5",
+                      "primary": "#004ac6",
+                      "tertiary": "#005a82",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "error": "#ba1a1a",
+                      "on-primary-container": "#eeefff",
+                      "secondary": "#505f76",
+                      "tertiary-container": "#0074a6",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#001e2f",
+                      "on-background": "#191c1e",
+                      "tertiary-fixed": "#c9e6ff",
+                      "surface-container": "#eceef0",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "on-secondary-container": "#54647a",
+                      "on-primary-fixed": "#00174b",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#004c6e",
+                      "surface-container-highest": "#e0e3e5",
+                      "surface": "#f7f9fb",
+                      "primary-container": "#2563eb",
+                      "surface-container-high": "#e6e8ea",
+                      "outline-variant": "#c3c6d7",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "on-secondary-fixed": "#0b1c30",
+                      "surface-tint": "#0053db",
+                      "surface-container-low": "#f2f4f6",
+                      "secondary-fixed": "#d3e4fe",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "secondary-container": "#d0e1fb",
+                      "on-error-container": "#93000a",
+                      "on-surface-variant": "#434655",
+                      "tertiary-fixed-dim": "#89ceff",
+                      "background": "#f7f9fb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "base": "4px",
+                      "margin-desktop": "40px",
+                      "3xl": "64px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "2xl": "48px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-lg-mobile": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Soft Ambient Shadows per Design System */
+        .shadow-low { box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.1), 0 1px 2px -1px rgba(15, 23, 42, 0.1); }
+        .shadow-medium { box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08); }
+        .shadow-high { box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1); }
+        
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e0e3e5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c3c6d7; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased flex h-screen overflow-hidden">
+<!-- Shared Component: SideNavBar -->
+<nav class="bg-surface-container-lowest h-screen w-64 fixed left-0 top-0 border-r border-surface-variant shadow-low flex flex-col p-md gap-sm z-40 hidden md:flex">
+<!-- Header -->
+<div class="flex items-center gap-sm mb-lg px-sm pt-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden shrink-0 border border-surface-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a female admin user with a soft, natural smile, wearing modern business casual attire against a clean, light grey studio background. The lighting is soft and even, typical of a modern corporate portrait." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNouwJN-klopx6bMlXKdI5sX13Y9AVQSc2XgRqZyckTw1dYUfO5pUnI_mmxYDNXY49tDdzKNPfwhZ2j4tQJJvgIJsEc-hmFZqVw47XQba7d-uWxFqCsFbO_fvp7YFU7vlqfKv6oXBs412_9DSQNNA-UYornfktM77JmJAXmntDVjbzMH_d9slqpAVX5WvjJUTRzZSj-tb6_K5tF2EM_K2Z4WwzT0OxoealImW03R3-n3WlbYF4nIFU"/>
+</div>
+<div class="overflow-hidden">
+<h1 class="font-headline-md text-headline-md font-black text-primary truncate">TaskMaster Admin</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">admin@taskmaster.com</p>
+</div>
+</div>
+<!-- CTA -->
+<button class="w-full bg-primary text-on-primary h-10 rounded-lg font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors shadow-low flex items-center justify-center gap-2 mb-md">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+            New Task
+        </button>
+<!-- Navigation Links -->
+<div class="flex-1 overflow-y-auto space-y-1">
+<!-- Dashboard (Inactive) -->
+<a class="flex items-center gap-sm px-sm py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-95 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">dashboard</span>
+                Dashboard
+            </a>
+<!-- Tasks (Active) -->
+<a class="flex items-center gap-sm px-sm py-2 rounded-lg font-label-md text-label-md bg-secondary-container text-on-secondary-container font-semibold active:scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+                Tasks
+            </a>
+<!-- Users (Inactive) -->
+<a class="flex items-center gap-sm px-sm py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-95 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">group</span>
+                Users
+            </a>
+<!-- Categories (Inactive) -->
+<a class="flex items-center gap-sm px-sm py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-95 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">category</span>
+                Categories
+            </a>
+<!-- Settings (Inactive) -->
+<a class="flex items-center gap-sm px-sm py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-95 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
+                Settings
+            </a>
+</div>
+<!-- Footer Links -->
+<div class="pt-md border-t border-surface-variant space-y-1 mt-auto">
+<a class="flex items-center gap-sm px-sm py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-95 group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-sm px-sm py-2 rounded-lg font-label-md text-label-md text-error hover:bg-error-container/50 transition-all duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 h-full overflow-y-auto flex flex-col relative w-full max-w-[1280px] mx-auto">
+<!-- Header Section -->
+<header class="px-margin-desktop py-lg pb-md flex flex-col md:flex-row md:items-end justify-between gap-md shrink-0">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Tasks</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage and track your team's ongoing work.</p>
+</div>
+<!-- Quick Actions / Top Toolbar -->
+<div class="flex items-center gap-sm">
+<button class="h-10 px-md bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors flex items-center gap-2 shadow-low">
+<span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+                    Export
+                </button>
+<button class="md:hidden h-10 px-md bg-primary text-on-primary rounded-lg font-label-md text-label-md shadow-low flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+                    New
+                </button>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="px-margin-mobile md:px-margin-desktop pb-margin-desktop flex-1 flex flex-col">
+<!-- Filter & Search Bar (Glassmorphism inspired clean panel) -->
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-md mb-lg shadow-low flex flex-col lg:flex-row gap-md items-center justify-between z-10 relative">
+<!-- Search -->
+<div class="relative w-full lg:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full h-10 pl-10 pr-sm py-xs bg-surface-bright border border-surface-variant rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all" placeholder="Search tasks by name or ID..." type="text"/>
+</div>
+<!-- Filters & Sort -->
+<div class="flex flex-wrap items-center gap-sm w-full lg:w-auto">
+<!-- Status Filter -->
+<div class="relative group">
+<button class="h-10 px-md bg-surface-bright border border-surface-variant text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" style="font-size: 18px;">filter_list</span>
+                            Status
+                            <span class="material-symbols-outlined text-outline" style="font-size: 18px;">arrow_drop_down</span>
+</button>
+</div>
+<!-- Category Filter -->
+<div class="relative group">
+<button class="h-10 px-md bg-surface-bright border border-surface-variant text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors flex items-center gap-2">
+                            Category
+                            <span class="material-symbols-outlined text-outline" style="font-size: 18px;">arrow_drop_down</span>
+</button>
+</div>
+<!-- Sort -->
+<div class="flex items-center gap-2 ml-auto lg:ml-md border-l border-surface-variant pl-md">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Sort by</span>
+<select class="h-10 pl-sm pr-8 py-xs bg-transparent border-none text-on-surface font-label-md text-label-md focus:ring-0 cursor-pointer hover:bg-surface-container-low rounded-lg transition-colors appearance-none outline-none">
+<option>Due Date</option>
+<option>Priority</option>
+<option>Recently Added</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Task List Data Table -->
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl shadow-medium flex-1 overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[800px]">
+<thead>
+<tr class="bg-surface-container-low border-b border-surface-variant font-label-md text-label-md text-on-surface-variant">
+<th class="py-md px-md w-12 text-center">
+<input class="rounded border-outline-variant text-primary focus:ring-primary/20 w-4 h-4 cursor-pointer" type="checkbox"/>
+</th>
+<th class="py-md px-md font-medium">Task Name</th>
+<th class="py-md px-md font-medium">Category</th>
+<th class="py-md px-md font-medium">Assignee</th>
+<th class="py-md px-md font-medium">Priority</th>
+<th class="py-md px-md font-medium">Status</th>
+<th class="py-md px-md font-medium">Due Date</th>
+<th class="py-md px-md w-16 text-center"></th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="border-b border-surface-variant hover:bg-surface-bright transition-colors duration-150 group relative">
+<!-- Category Stripe Hint via pseudo element or left border, let's use a colored left border -->
+<td class="py-md px-md text-center border-l-4 border-error">
+<input class="rounded border-outline-variant text-primary focus:ring-primary/20 w-4 h-4 cursor-pointer opacity-50 group-hover:opacity-100 transition-opacity" type="checkbox"/>
+</td>
+<td class="py-md px-md">
+<div class="font-medium text-on-surface group-hover:text-primary transition-colors cursor-pointer">Finalize Q3 Financial Report</div>
+<div class="font-body-sm text-body-sm text-outline mt-0.5">#TSK-1042</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Finance</span>
+</td>
+<td class="py-md px-md">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-surface-variant shrink-0">
+<img alt="" class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a man in his 30s with short dark hair and glasses, looking directly at the camera, lit with bright, clear office lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5eBcwspupnwaEhw3pntF1DXYkIHTGyOEauemkrIvVFhGmvgJpWMv-pXVVabxCTgSKrjZPnwPjOiCNbjI64y7b-E4fmDAzEq5-8Ib4qmaXXUBNjHR-Cpg6hVViD6EsXUa9un6APBkLP7Wn4pzsUB6mX5wtf-Y_aZPRLDk5-PtRMd8b0he-HkeUtSoYjfSbms0pf7AY-DSzwTgEQRKDiwrFrHh28BS_VwU1_RAYczi41IT-VjRpMiR9"/>
+</div>
+<span class="text-on-surface-variant">Sarah J.</span>
+</div>
+</td>
+<td class="py-md px-md">
+<div class="flex items-center gap-1 text-error">
+<span class="material-symbols-outlined" style="font-size: 16px; font-variation-settings: 'FILL' 1;">keyboard_double_arrow_up</span>
+<span class="font-label-sm text-label-sm">High</span>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm border border-primary/20">
+                                        In Progress
+                                    </span>
+</td>
+<td class="py-md px-md text-error font-medium text-body-sm">
+                                    Oct 12, 2024
+                                </td>
+<td class="py-md px-md text-center">
+<button class="text-outline hover:text-primary transition-colors p-1 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined" style="font-size: 20px;">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-surface-variant hover:bg-surface-bright transition-colors duration-150 group">
+<td class="py-md px-md text-center border-l-4 border-tertiary">
+<input class="rounded border-outline-variant text-primary focus:ring-primary/20 w-4 h-4 cursor-pointer opacity-50 group-hover:opacity-100 transition-opacity" type="checkbox"/>
+</td>
+<td class="py-md px-md">
+<div class="font-medium text-on-surface group-hover:text-primary transition-colors cursor-pointer">Update Homepage Hero Image</div>
+<div class="font-body-sm text-body-sm text-outline mt-0.5">#TSK-1045</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Design</span>
+</td>
+<td class="py-md px-md">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-surface-variant shrink-0 flex items-center justify-center text-label-sm text-on-surface-variant font-medium">
+                                            MJ
+                                        </div>
+<span class="text-on-surface-variant">Mike J.</span>
+</div>
+</td>
+<td class="py-md px-md">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined" style="font-size: 16px;">keyboard_arrow_up</span>
+<span class="font-label-sm text-label-sm">Medium</span>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/30">
+                                        To Do
+                                    </span>
+</td>
+<td class="py-md px-md text-on-surface-variant text-body-sm">
+                                    Oct 15, 2024
+                                </td>
+<td class="py-md px-md text-center">
+<button class="text-outline hover:text-primary transition-colors p-1 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined" style="font-size: 20px;">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 (Completed state) -->
+<tr class="border-b border-surface-variant hover:bg-surface-bright transition-colors duration-150 group opacity-75">
+<td class="py-md px-md text-center border-l-4 border-outline-variant">
+<input class="rounded border-outline-variant text-primary focus:ring-primary/20 w-4 h-4 cursor-pointer opacity-50 group-hover:opacity-100 transition-opacity" type="checkbox"/>
+</td>
+<td class="py-md px-md">
+<div class="font-medium text-on-surface-variant line-through group-hover:text-primary transition-colors cursor-pointer">Server Maintenance Patch</div>
+<div class="font-body-sm text-body-sm text-outline mt-0.5">#TSK-1039</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">DevOps</span>
+</td>
+<td class="py-md px-md">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-surface-variant shrink-0">
+<img alt="" class="w-full h-full object-cover" data-alt="A small circular profile picture of a young woman with curly hair, smiling subtly, set against a blurred indoor office background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKDm2drRme6FtnirT95TnWE5BvqRcF6VJ2n-RnQh6SRvr1oE7NRee8zq6eOIaxYfn4cphz4t0Ja68vS7YkImJclgZVuwh8gGeSvhhNaEwODB5IpauToXt66OFv8n9C23AZAIKa1MZCgPj-xkGN7hFCqxLp73p_kOMYL_dwUZbmZQ6mual7VifNA3I2cE4yjJdiH_-Fh55FVThDu4EgkVUoPL7r54Rgh1VJmzNsDVCiBwUAZ_j94j2b"/>
+</div>
+<span class="text-on-surface-variant">Elena R.</span>
+</div>
+</td>
+<td class="py-md px-md">
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined" style="font-size: 16px;">keyboard_arrow_down</span>
+<span class="font-label-sm text-label-sm">Low</span>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm border border-secondary/20">
+<span class="material-symbols-outlined mr-1" style="font-size: 14px;">check_circle</span>
+                                        Done
+                                    </span>
+</td>
+<td class="py-md px-md text-on-surface-variant text-body-sm">
+                                    Oct 10, 2024
+                                </td>
+<td class="py-md px-md text-center">
+<button class="text-outline hover:text-primary transition-colors p-1 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined" style="font-size: 20px;">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-bright transition-colors duration-150 group">
+<td class="py-md px-md text-center border-l-4 border-tertiary">
+<input class="rounded border-outline-variant text-primary focus:ring-primary/20 w-4 h-4 cursor-pointer opacity-50 group-hover:opacity-100 transition-opacity" type="checkbox"/>
+</td>
+<td class="py-md px-md">
+<div class="font-medium text-on-surface group-hover:text-primary transition-colors cursor-pointer">Draft Q4 Marketing Copy</div>
+<div class="font-body-sm text-body-sm text-outline mt-0.5">#TSK-1048</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Marketing</span>
+</td>
+<td class="py-md px-md">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-surface-variant shrink-0 flex items-center justify-center text-label-sm text-on-surface-variant font-medium">
+                                            TR
+                                        </div>
+<span class="text-on-surface-variant">Tom R.</span>
+</div>
+</td>
+<td class="py-md px-md">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined" style="font-size: 16px;">keyboard_arrow_up</span>
+<span class="font-label-sm text-label-sm">Medium</span>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm border border-primary/20">
+                                        In Progress
+                                    </span>
+</td>
+<td class="py-md px-md text-on-surface-variant text-body-sm">
+                                    Oct 18, 2024
+                                </td>
+<td class="py-md px-md text-center">
+<button class="text-outline hover:text-primary transition-colors p-1 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined" style="font-size: 20px;">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="mt-auto bg-surface-container-lowest border-t border-surface-variant px-md py-sm flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing <strong class="text-on-surface font-medium">1</strong> to <strong class="text-on-surface font-medium">4</strong> of <strong class="text-on-surface font-medium">124</strong> tasks</span>
+<div class="flex items-center gap-xs">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-surface-variant text-outline hover:bg-surface-container-low hover:text-on-surface transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined" style="font-size: 18px;">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-primary bg-primary text-on-primary font-label-sm text-label-sm">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-surface-variant text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-sm text-label-sm">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-surface-variant text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-sm text-label-sm">3</button>
+<span class="text-outline px-1">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-surface-variant text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-sm text-label-sm">12</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-surface-variant text-outline hover:bg-surface-container-low hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Shared Component: Footer (Contextualized for main content area bottom) -->
+<footer class="mt-lg py-md border-t border-outline-variant flex flex-col md:flex-row justify-between items-center w-full shrink-0">
+<p class="font-body-sm text-body-sm text-secondary">© 2024 TaskMaster Inc. All rights reserved.</p>
+<div class="flex gap-md mt-sm md:mt-0 font-body-sm text-body-sm text-on-surface-variant">
+<a class="hover:underline transition-opacity hover:opacity-75 text-secondary" href="#">Privacy Policy</a>
+<a class="hover:underline transition-opacity hover:opacity-75 text-secondary" href="#">Terms of Service</a>
+<a class="hover:underline transition-opacity hover:opacity-75 text-secondary" href="#">Cookie Policy</a>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

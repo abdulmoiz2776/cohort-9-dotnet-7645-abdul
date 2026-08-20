@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deleted Tasks Archive - TaskMaster</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed": "#dbe1ff",
+                        "inverse-primary": "#b4c5ff",
+                        "on-tertiary-container": "#e4f2ff",
+                        "on-error": "#ffffff",
+                        "outline": "#737686",
+                        "inverse-surface": "#2d3133",
+                        "on-surface": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "primary": "#004ac6",
+                        "tertiary": "#005a82",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#eeefff",
+                        "secondary": "#505f76",
+                        "tertiary-container": "#0074a6",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#001e2f",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed": "#c9e6ff",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-secondary-container": "#54647a",
+                        "on-primary-fixed": "#00174b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface": "#f7f9fb",
+                        "primary-container": "#2563eb",
+                        "surface-container-high": "#e6e8ea",
+                        "outline-variant": "#c3c6d7",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-tint": "#0053db",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "secondary-container": "#d0e1fb",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#434655",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "background": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "base": "4px",
+                        "margin-desktop": "40px",
+                        "3xl": "64px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "2xl": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .icon-fill { font-variation-settings: 'FILL' 1; }
+    </style>
+</head>
+<body class="bg-background text-on-background flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-lowest dark:bg-inverse-surface border-r border-outline-variant dark:border-outline shadow-sm h-screen w-64 fixed left-0 top-0 flex flex-col p-md gap-sm z-50">
+<div class="flex items-center gap-sm px-sm py-md">
+<span class="material-symbols-outlined text-primary text-3xl">task_alt</span>
+<span class="font-headline-md text-headline-md font-black text-primary">TaskMaster</span>
+</div>
+<div class="flex items-center gap-md px-sm py-md border-b border-outline-variant dark:border-outline mb-sm">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A small, professional avatar portrait of a modern office administrator. Clean lighting, high resolution, minimalist aesthetic matching a bright clean UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCknug4M6O72ZDwVnmoD1I0euB5C4i3kUF3bW4T__vYTObAsP5EXgRXsemXfhVrknh0yYrQLB5PZC1NEyoGAf54QtL_KcxALtXtQgIJPoW3oh1UM7vYG2QRKvLxJNN7MyzA2H9BnStZDAdycO9mw3KxqTB0ub7e8uqBWxrOP1eevNWAC68rwPk1wbD25g4CAxHg0nK-FJbgE9uLNpJtcxW53GLQUATczvDcJU2nj7yLMsJja4hSanyH"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">TaskMaster Admin</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">admin@taskmaster.com</span>
+</div>
+</div>
+<nav class="flex flex-col gap-xs flex-1">
+<a class="flex items-center gap-md px-sm py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant hover:bg-surface-container-high transition-all duration-150 rounded-lg active:scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-md px-sm py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant hover:bg-surface-container-high transition-all duration-150 rounded-lg active:scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">assignment</span>
+                Tasks
+            </a>
+<a class="flex items-center gap-md px-sm py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant hover:bg-surface-container-high transition-all duration-150 rounded-lg active:scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">group</span>
+                Users
+            </a>
+<a class="flex items-center gap-md px-sm py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant hover:bg-surface-container-high transition-all duration-150 rounded-lg active:scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">category</span>
+                Categories
+            </a>
+<a class="flex items-center gap-md px-sm py-sm bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary font-semibold rounded-lg hover:bg-surface-container-high transition-all duration-150 active:scale-95 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined icon-fill">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="mt-auto flex flex-col gap-xs pt-md border-t border-outline-variant dark:border-outline">
+<button class="w-full flex items-center justify-center gap-sm bg-primary-container text-on-primary font-label-md text-label-md rounded-lg py-sm px-md hover:bg-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+                New Task
+            </button>
+<a class="flex items-center gap-md px-sm py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant transition-all duration-150 rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-md px-sm py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant transition-all duration-150 rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-1 flex flex-col overflow-y-auto">
+<!-- Top Nav (Simplified for Admin View context, mainly serving as header) -->
+<header class="bg-surface sticky top-0 z-40 border-b border-outline-variant flex items-center justify-between px-margin-desktop py-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Deleted Tasks</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Review and restore soft-deleted items or permanently remove them from the system.</p>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-shadow" placeholder="Search archive..." type="text"/>
+</div>
+<button class="p-2 border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</header>
+<!-- Canvas -->
+<div class="p-margin-desktop max-w-[1280px] mx-auto w-full flex-1">
+<!-- Controls Bar -->
+<div class="flex justify-between items-center mb-lg bg-surface-container-lowest p-sm rounded-lg border border-outline-variant shadow-[0_1px_3px_0_rgba(15,23,42,0.1)]">
+<div class="flex items-center gap-sm">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary ml-sm" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface-variant">Select All</span>
+</div>
+<div class="flex gap-sm">
+<button class="font-label-md text-label-md px-md py-sm rounded border border-outline-variant text-secondary hover:bg-surface-container-low transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">restore</span>
+                        Restore Selected
+                    </button>
+<button class="font-label-md text-label-md px-md py-sm rounded bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-colors flex items-center gap-xs border border-transparent">
+<span class="material-symbols-outlined text-[18px]">delete_forever</span>
+                        Delete Permanently
+                    </button>
+</div>
+</div>
+<!-- Task List -->
+<div class="flex flex-col gap-sm">
+<!-- Item 1 -->
+<div class="group bg-surface-container-lowest rounded-lg border border-outline-variant p-md flex items-center justify-between hover:shadow-[0_10px_15px_-3px_rgba(15,23,42,0.08)] transition-all relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-container"></div>
+<div class="flex items-center gap-md pl-xs flex-1">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface strike-through">Update Q3 Marketing Deck</span>
+<div class="flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[16px] text-outline">history</span>
+<span class="font-body-sm text-body-sm text-outline">Deleted 2 hours ago by Sarah Jenkins</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-primary hover:text-primary-fixed-variant flex items-center gap-xs font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">restore</span> Restore
+                        </button>
+<button class="text-error hover:text-on-error-container flex items-center gap-xs font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">delete_forever</span> Delete
+                        </button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group bg-surface-container-lowest rounded-lg border border-outline-variant p-md flex items-center justify-between hover:shadow-[0_10px_15px_-3px_rgba(15,23,42,0.08)] transition-all relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error"></div>
+<div class="flex items-center gap-md pl-xs flex-1">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface strike-through">Fix Critical Production Bug #892</span>
+<div class="flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[16px] text-outline">history</span>
+<span class="font-body-sm text-body-sm text-outline">Deleted yesterday by System Auto-Archive</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-primary hover:text-primary-fixed-variant flex items-center gap-xs font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">restore</span> Restore
+                        </button>
+<button class="text-error hover:text-on-error-container flex items-center gap-xs font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">delete_forever</span> Delete
+                        </button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group bg-surface-container-lowest rounded-lg border border-outline-variant p-md flex items-center justify-between hover:shadow-[0_10px_15px_-3px_rgba(15,23,42,0.08)] transition-all relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-surface-variant"></div>
+<div class="flex items-center gap-md pl-xs flex-1">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface strike-through">Draft Weekly Newsletter</span>
+<div class="flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined text-[16px] text-outline">history</span>
+<span class="font-body-sm text-body-sm text-outline">Deleted Oct 24, 2024 by Mike Ross</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-primary hover:text-primary-fixed-variant flex items-center gap-xs font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">restore</span> Restore
+                        </button>
+<button class="text-error hover:text-on-error-container flex items-center gap-xs font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px]">delete_forever</span> Delete
+                        </button>
+</div>
+</div>
+</div>
+<!-- Empty State / Load More (Hidden for this view but typical for list) -->
+<div class="mt-lg flex justify-center">
+<button class="font-label-md text-label-md text-secondary hover:text-on-surface transition-colors py-sm px-lg rounded-full border border-outline-variant hover:bg-surface-container-low bg-surface-container-lowest">
+                    Load More Archived Tasks
+                </button>
+</div>
+</div>
+</main>
+</body></html>
