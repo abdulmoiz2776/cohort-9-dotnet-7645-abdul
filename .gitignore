@@ -5,6 +5,7 @@
 # .NET logs
 **/Logs/
 **/logs/
+**/TestResults/
 
 # Frontend
 **/node_modules/
