@@ -79,7 +79,7 @@ app.MapHealthChecks("/health", new HealthCheckOptions
             {
                 Name = x.Key,
                 Status = x.Value.Status.ToString(),
-                Error = x.Value.Exception?.Message
+                
             })
         };
 

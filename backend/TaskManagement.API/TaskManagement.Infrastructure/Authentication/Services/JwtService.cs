@@ -145,7 +145,7 @@ public sealed class JwtService : IJwtService
     public ClaimsPrincipal? ValidateToken(string token)
     {
         var handler = new JwtSecurityTokenHandler();
-        Console.WriteLine($"Raw token input: '{token}'");
+        
 
         token = token?.Trim() ?? string.Empty;
 

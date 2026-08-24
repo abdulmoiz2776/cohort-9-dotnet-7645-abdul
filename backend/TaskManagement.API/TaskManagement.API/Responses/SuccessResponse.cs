@@ -2,10 +2,12 @@
 
 public class SuccessResponse<T> : ApiResponse<T>
 {
-    public SuccessResponse(T data, string message = "Success")
-    {
-        Success = true;
-        Message = message;
-        Data = data;
-    }
+   public SuccessResponse(T data, string message = "Success")
+{
+    ArgumentNullException.ThrowIfNull(data);
+
+    Success = true;
+    Message = message;
+    Data = data;
+}
 }

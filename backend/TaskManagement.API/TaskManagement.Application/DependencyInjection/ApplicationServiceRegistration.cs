@@ -10,6 +10,8 @@ public static class ApplicationServiceRegistration
     public static IServiceCollection AddApplication(
         this IServiceCollection services)
     {
+         ArgumentNullException.ThrowIfNull(services);
+
         var assembly = Assembly.GetExecutingAssembly();
 
         // AutoMapper
