@@ -182,3 +182,156 @@
     border-right-color: var(--border);
   }
 }
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-h);
+  text-decoration: none;
+}
+
+.app-header nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.app-header a,
+.nav-button {
+  color: var(--text-h);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.app-header a:hover,
+.nav-button:hover {
+  border-color: var(--border);
+}
+
+.nav-button {
+  cursor: pointer;
+  background: var(--accent-bg);
+}
+
+.app-content {
+  flex: 1;
+  padding: 32px 24px;
+}
+
+.app-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.auth-form,
+.profile-card,
+.table-container {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.auth-form input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 1rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-error,
+.form-success {
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.form-error {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.form-success {
+  background: #ecfdf5;
+  color: #166534;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.table-container th {
+  font-weight: 600;
+}
+
+.home-hero {
+  background: var(--accent-bg);
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.loading {
+  padding: 32px;
+  color: var(--text-h);
+}

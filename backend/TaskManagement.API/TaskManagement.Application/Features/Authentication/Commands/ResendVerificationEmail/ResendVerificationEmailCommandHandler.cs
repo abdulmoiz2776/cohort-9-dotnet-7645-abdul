@@ -50,7 +50,7 @@ public class ResendVerificationEmailCommandHandler
         var encodedToken = Uri.EscapeDataString(token);
 
         var verificationLink =
-            $"https://localhost:3000/verify-email?userId={user.Id}&token={encodedToken}";
+            $"https://localhost:5173/verify-email?userId={user.Id}&token={encodedToken}";
 
         var templatePath = Path.Combine(
             AppContext.BaseDirectory,

@@ -76,7 +76,7 @@ public class RegisterCommandHandler
         var encodedToken = Uri.EscapeDataString(token);
 
         var verificationUrl =
-          $"https://localhost:3000/verify-email?userId={user.Id}&token={encodedToken}";
+          $"https://localhost:5173/verify-email?userId={user.Id}&token={encodedToken}";
 
         Console.WriteLine("Generating email template...");
         // Read template

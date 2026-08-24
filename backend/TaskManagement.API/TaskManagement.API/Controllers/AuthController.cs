@@ -13,6 +13,7 @@ namespace TaskManagement.API.Controllers;
 using TaskManagement.Application.Features.Authentication.Commands.ForgotPassword;
 using TaskManagement.Application.Features.Authentication.Commands.RevokeSession;
 using TaskManagement.Application.Features.Authentication.Queries.GetSessions;
+using TaskManagement.Application.Features.Authentication.Commands.RefreshToken;
 
 [ApiController]
 [Route("api/auth")]
@@ -76,6 +77,16 @@ public class AuthController : ControllerBase
         {
             return BadRequest(result);
         }
+
+        return Ok(result);
+    }
+    [HttpPost("refresh")]
+    public async Task<IActionResult> Refresh(RefreshTokenCommand command)
+    {
+        var result = await _mediator.Send(command);
+
+        if (!result.Succeeded)
+            return BadRequest(result);
 
         return Ok(result);
     }
