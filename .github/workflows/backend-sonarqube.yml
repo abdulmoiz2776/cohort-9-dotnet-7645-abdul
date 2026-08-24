@@ -1,0 +1,60 @@
+name: Backend SonarQube
+
+on:
+  push:
+    branches: [main, develop, feature/SonarQube]
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend/TaskManagement.API
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install SonarScanner
+        run: dotnet tool install --global dotnet-sonarscanner
+
+      - name: Add .NET tools to PATH
+        run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+
+      - name: Restore
+        run: dotnet restore TaskManagement.API.slnx
+
+      - name: Begin SonarQube analysis
+        run: >-
+          dotnet sonarscanner begin
+          /k:"${{ secrets.SONAR_PROJECT_KEY }}"
+          /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
+          /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          /d:sonar.cs.opencover.reportsPaths="TestResults/**/coverage.opencover.xml"
+          /d:sonar.qualitygate.wait=true
+
+      - name: Build
+        run: dotnet build TaskManagement.API.slnx --no-restore
+
+      - name: Test with coverage
+        run: >-
+          dotnet test TaskManagement.Tests/TaskManagement.Tests.csproj
+          --no-build
+          --collect:"XPlat Code Coverage"
+          --results-directory TestResults
+          -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+
+      - name: End SonarQube analysis
+        run: dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
